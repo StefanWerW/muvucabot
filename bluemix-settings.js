@@ -60,6 +60,8 @@ if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
         users: function(username) {
             if (process.env.NODE_RED_USERNAME == username) {
                 return when.resolve({username:username,permissions:"*"});
+            } else if (process.env.NODE_RED_READONLY_USERNAME == username) {
+                return when.resolve({username:username, permissions:"read"})
             } else {
                 return when.resolve(null);
             }
@@ -68,6 +70,9 @@ if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
             if (process.env.NODE_RED_USERNAME == username &&
                 process.env.NODE_RED_PASSWORD == password) {
                 return when.resolve({username:username,permissions:"*"});
+            } else if (process.env.NODE_RED_READONLY_USERNAME == username&&
+                       precess.env.NODE_RED_READONLY_PASSWORD == password) {
+                return when.resolve({username:username, permissions:"read"})
             } else {
                 return when.resolve(null);
             }
