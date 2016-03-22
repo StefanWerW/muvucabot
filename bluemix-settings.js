@@ -71,7 +71,7 @@ if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
                 process.env.NODE_RED_PASSWORD == password) {
                 return when.resolve({username:username,permissions:"*"});
             } else if (process.env.NODE_RED_READONLY_USERNAME == username&&
-                       precess.env.NODE_RED_READONLY_PASSWORD == password) {
+                       process.env.NODE_RED_READONLY_PASSWORD == password) {
                 return when.resolve({username:username, permissions:"read"})
             } else {
                 return when.resolve(null);
